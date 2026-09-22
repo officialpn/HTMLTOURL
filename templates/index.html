@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DropShare — Premium File Sharing</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="bg-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+</div>
+
+<nav class="navbar">
+    <div class="logo">
+        <div class="logo-icon">◆</div>
+        <span>DropShare</span>
+    </div>
+    <div class="nav-badge">Secure • Fast • Free</div>
+</nav>
+
+<main class="container">
+    <div class="hero">
+        <h1 class="hero-title">Share Files <span class="gradient-text">Beautifully</span></h1>
+        <p class="hero-subtitle">Upload any file and get a secure, shareable link in seconds. End-to-end encrypted storage with automatic expiry.</p>
+    </div>
+
+    <div class="upload-card" id="uploadCard">
+        <div class="dropzone" id="dropzone">
+            <input type="file" id="fileInput" hidden>
+            <div class="dropzone-content" id="dropzoneContent">
+                <div class="upload-icon">
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                        <polyline points="17 8 12 3 7 8"/>
+                        <line x1="12" y1="3" x2="12" y2="15"/>
+                    </svg>
+                </div>
+                <h3>Drop your file here</h3>
+                <p>or <span class="browse-link">browse from device</span></p>
+                <div class="file-limits">Max 50MB • 20+ formats supported</div>
+            </div>
+        </div>
+
+        <div class="expiry-section">
+            <label>Link expires in:</label>
+            <div class="expiry-options">
+                <button class="expiry-btn" data-days="1">1 Day</button>
+                <button class="expiry-btn active" data-days="7">7 Days</button>
+                <button class="expiry-btn" data-days="15">15 Days</button>
+                <button class="expiry-btn" data-days="30">30 Days</button>
+            </div>
+        </div>
+
+        <button class="upload-btn" id="uploadBtn" disabled>
+            <span>Upload & Generate Link</span>
+        </button>
+    </div>
+
+    <div class="progress-container" id="progressContainer">
+        <div class="file-info">
+            <div class="file-icon" id="fileIcon">📄</div>
+            <div class="file-details">
+                <div class="file-name" id="fileName">filename.pdf</div>
+                <div class="file-size" id="fileSize">0 MB</div>
+            </div>
+        </div>
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <div class="progress-text" id="progressText">Uploading... 0%</div>
+    </div>
+
+    <div class="result-card" id="resultCard">
+        <div class="success-icon">✓</div>
+        <h2>Upload Successful!</h2>
+        <p class="result-subtitle">Your file is ready to share</p>
+        
+        <div class="link-box">
+            <input type="text" id="shareLink" readonly>
+            <button class="copy-btn" id="copyBtn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                </svg>
+                <span>Copy</span>
+            </button>
+        </div>
+
+        <div class="result-info">
+            <div class="info-item">
+                <span class="info-label">File</span>
+                <span class="info-value" id="resultFileName">-</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Size</span>
+                <span class="info-value" id="resultFileSize">-</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Expires</span>
+                <span class="info-value" id="resultExpiry">-</span>
+            </div>
+        </div>
+
+        <button class="new-upload-btn" id="newUploadBtn">Upload Another File</button>
+    </div>
+
+    <div class="features">
+        <div class="feature">
+            <div class="feature-icon">🔒</div>
+            <h3>Secure Links</h3>
+            <p>Random 128-bit tokens — unguessable URLs</p>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">⚡</div>
+            <h3>Lightning Fast</h3>
+            <p>Optimized uploads with real-time progress</p>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">🛡️</div>
+            <h3>Rate Limited</h3>
+            <p>DDoS & brute-force protection built-in</p>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <p>Built with Flask • Premium File Sharing Experience</p>
+</footer>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+      </html>
